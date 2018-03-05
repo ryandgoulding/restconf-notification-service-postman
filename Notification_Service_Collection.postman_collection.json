@@ -1,163 +1,117 @@
 {
-	"id": "cec2ab03-d050-d3c3-661d-c290956ea2a3",
-	"name": "Notification Service Collection",
-	"description": "Defines the ability to subscribe to notifications.",
-	"order": [
-		"ec0c3a10-08f2-f268-ff53-b3a495c5f35a",
-		"117b61f3-e0e5-79aa-9ade-b2d09a8fc048",
-		"3741bb0e-f39a-b6bf-bddd-881a8f45ec2a",
-		"08241e2d-4644-3fdd-828b-4255e1745ab5",
-		"d6a628e3-c8b2-9d7a-1df2-a59f5fc58024",
-		"dd26eb71-7f8d-1ad1-c39d-ad802ddf5a8b",
-		"1312a271-8f3e-b88e-2473-66f45364b522"
-	],
-	"folders": [],
-	"timestamp": 1463151159533,
-	"owner": 0,
-	"remoteLink": "",
-	"public": false,
-	"requests": [
+	"info": {
+		"name": "Notification Service Collection",
+		"_postman_id": "f2abf549-7ff7-8e33-b27f-37f16524591c",
+		"description": "Defines the ability to subscribe to notifications.",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
 		{
-			"id": "08241e2d-4644-3fdd-828b-4255e1745ab5",
-			"headers": "",
-			"url": "http://localhost:8181/restconf/operational/network-topology:network-topology/topology/ovsdb:1/node/ovsdb:%2F%2F127.0.0.1:6640",
-			"pathVariables": {},
-			"preRequestScript": null,
-			"method": "GET",
-			"collectionId": "cec2ab03-d050-d3c3-661d-c290956ea2a3",
-			"data": null,
-			"dataMode": "params",
-			"name": "Get Operational network-topology for local OVS server",
-			"description": "Get Operational network-topology for local OVS server.",
-			"descriptionFormat": "html",
-			"time": 1463153576724,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {}
-		},
-		{
-			"id": "117b61f3-e0e5-79aa-9ade-b2d09a8fc048",
-			"headers": "Authorization: Basic YWRtaW46YWRtaW4=\nAccept: application/json\nContent-Type: application/json\n",
-			"url": "http://localhost:8181/restconf/operations/sal-remote:create-data-change-event-subscription",
-			"pathVariables": {},
-			"preRequestScript": "",
-			"method": "POST",
-			"collectionId": "cec2ab03-d050-d3c3-661d-c290956ea2a3",
-			"data": [],
-			"dataMode": "raw",
-			"name": "Subscribe to Data Change Event For network-topology",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1463153545917,
-			"version": 2,
-			"responses": [],
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"rawModeData": "{\n\"input\": {\n\"path\": \"/network-topology:network-topology\",\n\"datastore\": \"OPERATIONAL\",\n\"scope\": \"SUBTREE\"\n}\n}\n"
-		},
-		{
-			"id": "1312a271-8f3e-b88e-2473-66f45364b522",
-			"headers": "Authorization: Basic YWRtaW46YWRtaW4=\nContent-Type: application/json\n",
-			"url": "http://localhost:8181/restconf/operations/toaster:make-toast",
-			"preRequestScript": null,
-			"pathVariables": {},
-			"method": "POST",
-			"data": [],
-			"dataMode": "raw",
-			"version": 2,
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"time": 1463157958534,
-			"name": "Make Some Toast",
-			"description": "",
-			"collectionId": "cec2ab03-d050-d3c3-661d-c290956ea2a3",
-			"responses": [],
-			"rawModeData": "{\n  \"input\" :\n  {\n     \"toaster:toasterDoneness\" : \"10\",\n     \"toaster:toasterToastType\":\"wheat-bread\" \n  }\n}\n"
-		},
-		{
-			"id": "3741bb0e-f39a-b6bf-bddd-881a8f45ec2a",
-			"headers": "Authorization: Basic YWRtaW46YWRtaW4=\n",
-			"url": "http://localhost:8181/restconf/streams/stream/network-topology:network-topology/datastore=OPERATIONAL/scope=SUBTREE",
-			"pathVariables": {},
-			"preRequestScript": null,
-			"method": "GET",
-			"collectionId": "cec2ab03-d050-d3c3-661d-c290956ea2a3",
-			"data": null,
-			"dataMode": "params",
-			"name": "Subscribe to Stream",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1463151720976,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {}
-		},
-		{
-			"id": "d6a628e3-c8b2-9d7a-1df2-a59f5fc58024",
-			"headers": "Authorization: Basic YWRtaW46YWRtaW4=\nAccept: application/json\nContent-Type: application/json\n",
-			"url": "http://localhost:8181/restconf/operations/sal-remote:create-data-change-event-subscription",
-			"pathVariables": {},
-			"preRequestScript": "",
-			"method": "POST",
-			"collectionId": "cec2ab03-d050-d3c3-661d-c290956ea2a3",
-			"data": [],
-			"dataMode": "raw",
 			"name": "Toaster subscribe to toasterStatus",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1463157632870,
-			"version": 2,
-			"responses": [],
-			"tests": "",
-			"currentHelper": "normal",
-			"helperAttributes": {},
-			"rawModeData": "{\n    \"input\": {\n        \"path\": \"/toaster:toaster/toaster:toasterStatus\",\n        \"sal-remote-augment:datastore\": \"OPERATIONAL\",\n        \"sal-remote-augment:scope\": \"SUBTREE\"\n    }\n}"
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4="
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n    \"input\": {\n        \"path\": \"/toaster:toaster/toaster:toasterStatus\",\n        \"sal-remote-augment:datastore\": \"OPERATIONAL\",\n        \"sal-remote-augment:scope\": \"SUBTREE\"\n    }\n}"
+				},
+				"url": {
+					"raw": "http://localhost:8181/restconf/operations/sal-remote:create-data-change-event-subscription",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"restconf",
+						"operations",
+						"sal-remote:create-data-change-event-subscription"
+					]
+				},
+				"description": ""
+			},
+			"response": []
 		},
 		{
-			"id": "dd26eb71-7f8d-1ad1-c39d-ad802ddf5a8b",
-			"headers": "Authorization: Basic YWRtaW46YWRtaW4=\n",
-			"url": "http://localhost:8181/restconf/streams/stream/toaster:toaster/toaster:toasterStatus/datastore=OPERATIONAL/scope=SUBTREE",
-			"pathVariables": {},
-			"preRequestScript": null,
-			"method": "GET",
-			"collectionId": "cec2ab03-d050-d3c3-661d-c290956ea2a3",
-			"data": null,
-			"dataMode": "params",
 			"name": "Subscribe to toasterStatus stream",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1463157700092,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {}
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4="
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "http://localhost:8181/restconf/streams/stream/data-change-event-subscription/toaster:toaster/toaster:toasterStatus/datastore=OPERATIONAL/scope=SUBTREE",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"restconf",
+						"streams",
+						"stream",
+						"data-change-event-subscription",
+						"toaster:toaster",
+						"toaster:toasterStatus",
+						"datastore=OPERATIONAL",
+						"scope=SUBTREE"
+					]
+				},
+				"description": ""
+			},
+			"response": []
 		},
 		{
-			"id": "ec0c3a10-08f2-f268-ff53-b3a495c5f35a",
-			"headers": "",
-			"url": "http://localhost:8181/restconf/operational/network-topology:network-topology/",
-			"pathVariables": {},
-			"preRequestScript": null,
-			"method": "GET",
-			"collectionId": "cec2ab03-d050-d3c3-661d-c290956ea2a3",
-			"data": null,
-			"dataMode": "params",
-			"name": "Operational network-topology",
-			"description": "",
-			"descriptionFormat": "html",
-			"time": 1463162915451,
-			"version": 2,
-			"responses": [],
-			"tests": null,
-			"currentHelper": "normal",
-			"helperAttributes": {}
+			"name": "Make Some Toast",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Basic YWRtaW46YWRtaW4="
+					},
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"input\" :\n  {\n     \"toaster:toasterDoneness\" : \"5\",\n     \"toaster:toasterToastType\":\"wheat-bread\" \n  }\n}\n"
+				},
+				"url": {
+					"raw": "http://localhost:8181/restconf/operations/toaster:make-toast",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8181",
+					"path": [
+						"restconf",
+						"operations",
+						"toaster:make-toast"
+					]
+				},
+				"description": ""
+			},
+			"response": []
 		}
 	]
 }
